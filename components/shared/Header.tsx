@@ -13,7 +13,7 @@ const Header = () => {
           <Image src="/images/logo.svg" width={128} height={38} alt="logo" />
         </Link>
         <SignedIn>
-          <div className="md:flex-between hidden w-full max-w-xs">
+          <div className=" hidden w-full max-w-xs md:flex-between">
             <Navbar />
           </div>
         </SignedIn>
