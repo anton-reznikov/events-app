@@ -15,7 +15,7 @@ export default function Home() {
               Book and learn helpful tips from 3,168+ mentors in world-class
               companies with our global community.
             </p>
-            <Button asChild size="lg" className="button sm:w-fit text-white">
+            <Button asChild size="lg" className="button sm:w-fit">
               <Link href="#events">Explore now</Link>
             </Button>
           </div>
