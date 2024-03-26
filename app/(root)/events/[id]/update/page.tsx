@@ -6,6 +6,7 @@ const UpdateEvent = () => {
   const { sessionClaims } = auth();
 
   const userId = sessionClaims?.userId as string;
+
   return (
     <>
       <section className="wrapper bg-primary-50 bg-dotted-pattern bg-cover bg-center md:py-10">

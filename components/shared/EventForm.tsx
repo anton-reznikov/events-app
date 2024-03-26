@@ -7,10 +7,8 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -22,12 +20,15 @@ import { Textarea } from "../ui/textarea";
 import FileUploader from "./FileUploader";
 import { useState } from "react";
 import Image from "next/image";
+import { useUploadThing } from "@/lib/uploadthing";
 
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
+import { useRouter } from "next/navigation";
+import { createEvent } from "@/lib/actions/events.actions";
 
 interface EventFormProps {
   userId: string;
@@ -42,8 +43,40 @@ const EventForm = ({ userId, type }: EventFormProps) => {
     defaultValues: initialValues,
   });
 
-  function onSubmit(values: z.infer<typeof eventFormSchema>) {
-    console.log(values);
+  const router = useRouter();
+
+  const { startUpload } = useUploadThing("imageUploader");
+
+  async function onSubmit(values: z.infer<typeof eventFormSchema>) {
+    console.log(values.categoryId);
+    let uploadedImageUrl = values.imageUrl;
+
+    if (files.length > 0) {
+      const uploadedImages = await startUpload(files);
+
+      if (!uploadedImages) {
+        return;
+      }
+
+      uploadedImageUrl = uploadedImages[0].url;
+    }
+
+    if (type === "Create") {
+      try {
+        const newEvent = await createEvent({
+          event: { ...values, imageUrl: uploadedImageUrl },
+          userId,
+          path: "/profile",
+        });
+
+        if (newEvent) {
+          form.reset();
+          router.push(`/events/${newEvent._id}`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
   return (
     <Form {...form}>
