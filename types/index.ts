@@ -61,3 +61,10 @@ export type Event = {
     name: string;
   };
 };
+
+export type GetAllEventsParams = {
+  query: string;
+  category: string;
+  limit: number;
+  page: number;
+};

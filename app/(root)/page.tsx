@@ -1,8 +1,18 @@
+import EventsList from "@/components/shared/EventsList";
 import { Button } from "@/components/ui/button";
+import { getAllEvents } from "@/lib/actions/events.actions";
+import { eventFormSchema } from "@/lib/validator";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const events = await getAllEvents({
+    query: "",
+    category: "",
+    page: 1,
+    limit: 6,
+  });
+
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
@@ -38,6 +48,16 @@ export default function Home() {
         <div className="flex w-full flex-col gap-5 md:flex-row">
           Search CategoryFilter
         </div>
+
+        <EventsList
+          data={events?.data}
+          noDataTitle="No Events Found"
+          noDataSubtitle="Come back later"
+          listType="All_Events"
+          limit={6}
+          page={1}
+          totalPages={events?.totalPages}
+        />
       </section>
     </>
   );
