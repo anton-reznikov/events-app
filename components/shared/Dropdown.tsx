@@ -41,7 +41,6 @@ const Dropdown = ({ value, onChangeHandler }: DropdownProps) => {
       setCategories((prevState) => [...prevState, category])
     );
   };
-
   useEffect(() => {
     const getCategories = async () => {
       const categoryList = await getAllCategories();
