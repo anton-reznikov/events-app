@@ -14,7 +14,7 @@ type CardProps = {
 const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
   const { sessionClaims } = auth();
 
-  const { userId } = sessionClaims?.userId as { userId: string };
+  const userId = sessionClaims?.userId as string;
 
   const isEventCreator = userId === event.organizer._id.toString();
   return (
@@ -32,10 +32,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
           <DeleteConfirmation eventId={event._id} />
         </div>
       )}
-      <Link
-        className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4"
-        href={`/events/${event?._id}}`}
-      >
+      <div className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4">
         {!hidePrice && (
           <div className="flex gap-2">
             <span className="text-sm font-semibold w-min rounded-full bg-green-100 px-4 py-1 text-grey-600">
@@ -50,10 +47,11 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
         <p className="text-base font-medium text-gray-500">
           {formatDateTime(event.startDateTime).dateTime}
         </p>
-
-        <p className="text-base md:text-xl line-clamp-2 flex-1 text-black">
-          {event.title}
-        </p>
+        <Link href={`/events/${event?._id}`}>
+          <p className="text-base md:text-xl line-clamp-2 flex-1 text-black">
+            {event.title}
+          </p>
+        </Link>
 
         <div className="flex-between w-full">
           <p className="text-sm md:text-base text-grey-600">
@@ -72,7 +70,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
             </Link>
           )}
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

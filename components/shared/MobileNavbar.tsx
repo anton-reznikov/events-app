@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -12,9 +14,10 @@ import { Separator } from "../ui/separator";
 import Navbar from "./Navbar";
 
 const MobileNavbar = () => {
+  const [open, setOpen] = useState(false);
   return (
     <nav className="md:hidden">
-      <Sheet>
+      <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger className="align-middle">
           <Image
             width={24}
@@ -27,7 +30,7 @@ const MobileNavbar = () => {
         <SheetContent className="flex flex-col gap-6 bg-white md:hidden">
           <Image src="/images/logo.svg" alt="logo" width={128} height={38} />
           <Separator className="border border-gray-50" />
-          <Navbar />
+          <Navbar setOpen={setOpen} />
         </SheetContent>
       </Sheet>
     </nav>

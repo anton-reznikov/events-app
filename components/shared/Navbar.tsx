@@ -3,9 +3,12 @@
 import { navLinks } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 
-const Navbar = () => {
+type NavbarProps = {
+  setOpen?: Dispatch<SetStateAction<boolean>>;
+};
+const Navbar = ({ setOpen }: NavbarProps) => {
   const pathname = usePathname();
   return (
     <nav className="w-full">
@@ -19,7 +22,16 @@ const Navbar = () => {
                 isActive && "text-primary-500"
               }  whitespace-nowrap text-base`}
             >
-              <Link href={link.route}>{link.label}</Link>
+              <Link
+                onClick={() => {
+                  if (setOpen) {
+                    setOpen(false);
+                  }
+                }}
+                href={link.route}
+              >
+                {link.label}
+              </Link>
             </li>
           );
         })}

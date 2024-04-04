@@ -1,3 +1,4 @@
+import CheckoutButton from "@/components/shared/CheckoutButton";
 import EventsList from "@/components/shared/EventsList";
 import {
   getEventById,
@@ -12,7 +13,7 @@ const EventDetailsPage = async ({
   params: { id },
   searchParams,
 }: SearchParamProps) => {
-  const event: Event = await getEventById(id);
+  const event = await getEventById(id);
 
   const relaredEvents = await getRelatedEventsByCategory({
     categoryId: event.category._id,
@@ -52,7 +53,7 @@ const EventDetailsPage = async ({
                 </p>
               </div>
             </div>
-
+            <CheckoutButton event={event} />
             <div className="flex flex-col gap-5">
               <div className="flex gap-2 md:gap-3">
                 <Image

@@ -76,9 +76,9 @@ export async function POST(req: Request) {
           userId: newUser._id,
         },
       });
-
-      return NextResponse.json({ message: "ok", user: newUser });
     }
+
+    return NextResponse.json({ message: "OK", user: newUser });
   }
 
   if (eventType === "user.updated") {

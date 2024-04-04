@@ -98,3 +98,25 @@ export type GetRelatedEventsByCategoryParams = {
   limit?: number;
   page: number | string;
 };
+
+export type GetEventsByUserParams = {
+  userId: string;
+  limit?: number;
+  page: number;
+};
+
+export type CheckoutOrderParams = {
+  eventTitle: string;
+  eventId: string;
+  price: string;
+  isFree: boolean;
+  buyerId: string;
+};
+
+export type CreateOrderParams = {
+  stripeId: string;
+  eventId: string;
+  buyerId: string;
+  totalAmount: string;
+  createdAt: Date;
+};
