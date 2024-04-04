@@ -1,3 +1,4 @@
+import CategoryFilter from "@/components/shared/CategoryFilter";
 import EventsList from "@/components/shared/EventsList";
 import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
@@ -15,8 +16,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   const events = await getAllEvents({
     query: searchText,
-    category: "",
-    page: 1,
+    category,
+    page: page,
     limit: 6,
   });
 
@@ -52,8 +53,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <h2 className="text-2xl font-bold">
           Trusted by <br /> Thousands of Events
         </h2>
-        <div className="flex w-full flex-col gap-5 md:flex-row">
-          <Search /> CategoryFilter
+        <div className="flex w-full flex-col items-center gap-5 md:flex-row">
+          <Search />
+          <CategoryFilter />
         </div>
 
         <EventsList
