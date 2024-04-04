@@ -120,3 +120,25 @@ export type CreateOrderParams = {
   totalAmount: string;
   createdAt: Date;
 };
+
+export type GetOrdersByEventParams = {
+  eventId: string;
+  searchString: string;
+};
+
+export type GetOrdersByUserParams = {
+  userId: string | null;
+  limit?: number;
+  page: string | number | null;
+};
+
+export type UrlQueryParams = {
+  params: string;
+  key: string;
+  value: string | null;
+};
+
+export type RemoveUrlQueryParams = {
+  params: string;
+  keysToRemove: string[];
+};
