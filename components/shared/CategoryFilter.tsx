@@ -29,26 +29,6 @@ const CategoryFilter = () => {
     getCategories();
   }, []);
 
-  //   useEffect(() => {
-  //     const delayDebounceFn = setTimeout(() => {
-  //       let newUrl = "";
-  //       if (categories) {
-  //         newUrl = `?${new URLSearchParams({
-  //           category: categories,
-  //         })}`;
-  //       } else {
-  //         newUrl = removeKeysFromQuery({
-  //           params: searchParams.toString(),
-  //           keysToRemove: ["category"],
-  //         });
-  //       }
-
-  //       router.push(newUrl, { scroll: false });
-  //     }, 500);
-
-  //     return () => clearTimeout(delayDebounceFn);
-  //   }, [categories, searchParams, router]);
-
   const onSelectCategory = (category: string) => {
     let newUrl = "";
     if (category && category !== "all") {

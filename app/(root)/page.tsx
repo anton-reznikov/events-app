@@ -3,7 +3,6 @@ import EventsList from "@/components/shared/EventsList";
 import Search from "@/components/shared/Search";
 import { Button } from "@/components/ui/button";
 import { getAllEvents } from "@/lib/actions/events.actions";
-import { eventFormSchema } from "@/lib/validator";
 import { SearchParamProps } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -63,8 +62,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           noDataTitle="No Events Found"
           noDataSubtitle="Come back later"
           listType="All_Events"
-          limit={6}
-          page={1}
+          page={page}
           totalPages={events?.totalPages}
         />
       </section>
