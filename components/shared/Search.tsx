@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
-import { debounce, formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
+import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const Search = ({
@@ -17,7 +17,7 @@ const Search = ({
   const router = useRouter();
 
   useEffect(() => {
-    const debouncedSearch = debounce(() => {
+    const delayDebounceFn = setTimeout(() => {
       let newUrl = "";
       if (query) {
         newUrl = formUrlQuery({
@@ -33,9 +33,7 @@ const Search = ({
       }
 
       router.push(newUrl, { scroll: false });
-    }, 500);
-
-    debouncedSearch();
+    }, 300);
 
     // const delayDebounceFn = setTimeout(() => {
     //   let newUrl = "";
