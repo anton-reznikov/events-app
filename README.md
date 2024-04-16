@@ -40,7 +40,7 @@
 
 🤖 **Organized Events:** Showing events created by the user on the user profile
 
-🤖 **Search & Filter:**Enabling users to easily find the events that match their preferences.
+🤖 **Search & Filter:** Enabling users to easily find the events that match their preferences.
 
 🤖 **New Category:** Users could dynamicly add a new events category if they haven't found appropriate one.
 
