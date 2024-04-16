@@ -1,4 +1,11 @@
-## Events Next js application
+<div align="center">
+  <br />
+      <img src="./public/images/github/promo.png" />
+  <br />
+
+  <h3 align="center">Next 14 Events App</h3>
+
+</div>
 
 ### with ability to create, share and browse events
 

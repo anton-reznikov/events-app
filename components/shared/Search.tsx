@@ -53,7 +53,7 @@ const Search = ({
     //   router.push(newUrl, { scroll: false });
     // }, 500);
 
-    // return () => clearTimeout(delayDebounceFn);
+    return () => clearTimeout(delayDebounceFn);
   }, [query, searchParams, router]);
 
   return (
