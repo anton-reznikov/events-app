@@ -36,7 +36,7 @@
 - **Update Events:** Users could update the information about generated event.
 - **Delete Events:** Giving creators the ability to manage their events.
 
-🤖 **Related Events:** Showing events from the same category that user is visiting
+🤖 **Related Events:** Showing events from the same category that user is obserwing
 
 🤖 **Organized Events:** Showing events created by the user on the user profile
 
