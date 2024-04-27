@@ -42,7 +42,7 @@
 
 🤖 **Search & Filter:** Enabling users to easily find the events that match their preferences.
 
-🤖 **New Category:** Users could dynamicly add a new events category if they haven't found appropriate one.
+🤖 **New Category:** Users could dynamicly add a new events category if they haven't found appropriative one.
 
 🤖 **Checkout and Pay with Stripe:** Payment transactions using Stripe. For checking functionality enter test Card: 4242424242424242 02/42 222
 
